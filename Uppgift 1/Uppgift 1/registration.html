@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="sv-SE">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo with Bootstrap</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/9272ac0a4d.js"></script>
+    <link rel="stylesheet" href="css/style2.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-own">
+        <span class="navbar-brand mb-0 h1 d-flex align-items-center">
+                <i class="fab fa-apple mr-2"></i>
+            apple.com
+        </span>
+    </nav>
+
+
+    <div class="container my-3">
+        <form id="regForm" class="mt-5" action="login.html" method="GET"> <!-- Tog bort #regForm, då funkar allt? men den finns ju med i scripfilen? -->
+            <div class="d-flex align-items-center">
+                <i class="fad fa-user-circle h1 mr-2 mt-1 purple"></i>
+                <h1 class="display-6">Account Registration</h1>
+            </div>
+
+            <p class="h5 mt-5 mb-2">Personal Information</p>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstname">First name</label>
+                    <input id="firstName" type="text" class="form-control" placeholder="First name" required>
+                    <div id="CannotMsg" class="invalid-feedback">
+                        Please enter your first name.
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="lastname">Last name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                    <div id="CannotMsg2" class="invalid-feedback">
+                        Please enter your last name.
+                    </div>
+                </div>
+
+                <div class="form-check min-form">
+                    <ul>
+                        <li>
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Male
+                            </label>
+                        </li>
+                        <li>
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Female
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="addressline">Street Address</label>
+                    <input type="text" class="form-control" id="addressline" placeholder="Street Address">
+                    <div id="CannotMsgStreet" class="invalid-feedback">
+                            Please enter a street address.
+                        </div>
+                </div>
+                <div class="form-group col-112 col-md-2">
+                    <label for="zipcode">Zip Code</label>
+                    <input type="number" class="form-control" id="zipcode" placeholder="Zip Code">
+                    <div id="CannotMsgZip" class="invalid-feedback">
+                            Please enter a zip code. Must be under 6 characters.
+                        </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                        <label for="inputState">Country</label>
+                        <select id="Country" class="form-control">
+                            <option>Sweden</option>
+                            <option>China</option>
+                            <option>Brazil</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Write something about yourself below!</label>
+                    <textarea class="form-control" id="textarea1" rows="3" placeholder="Optional . . ."></textarea>
+                </div> 
+
+
+            <hr id="hr-1" class="my-5 icon-clr">
+
+
+            <p class="h5 mb-3">Account Information</p> 
+            <div class="form-row">
+                <div class="form-group col-md-6 order-1 order-md-1">
+                    <label for="email">E-mail Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="E-mail Address" required>
+                    <div id="emailCannot" class="invalid-feedback">
+                        An email address is required.
+                    </div>
+                </div>
+                <div class="form-group col-md-4 offset-md-2 order-3 order-md-2">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password" required>
+                </div>
+                <div class="form-group col-md-4 offset-md-2 order-3 order-md-4">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required>
+                        <div id="password2" class="pass-info">
+                            Passwords must match and have between 6 to 20 characters, which contain at least one numeric digit, one uppercase and one lowercase letter!
+                        </div>
+                    </div>
+                <div class="form-group col-md-6 order-4 order-md-3">
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                        <label class="form-check-label black-feedback" for="defaultCheck1">
+                            I accept the <strong><a class="text-info-own" href="#" target="_blank">Terms and Policy (GDPR)</a></strong>
+                        </label>
+                        <div id="terms" class="invalid-own"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                            <button id="btnSubmit" type="submit" class="btn btn-own col-md-auto my-5">Register</button>
+                            <div id="regCannot" class="hideReg">
+                                    Cannot send
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
