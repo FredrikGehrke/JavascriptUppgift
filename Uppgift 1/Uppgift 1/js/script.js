@@ -106,7 +106,7 @@ $(function() {
             $('#addressline').addClass('is-valid') 
             return (true);
         } else {
-            document.getElementById("CannotMsgStreet").innerHTML = "The Street Address must be under 30 characters.";
+            document.getElementById("CannotMsgStreet").innerHTML = "The Street Address must be more than 5 characters and less than 30 characters.";
             $('#addressline').addClass('is-invalid')
             $('#addressline').focus();
             return (false);
@@ -150,6 +150,35 @@ $(function() {
         });
     });
 
+
+    //         // Validate Checkbox.
+	// $(document).ready(function(){
+    //     $('input[type="radio"]') (function(){
+    //         if(($('#male').prop("checked") == true) || ($('#female').prop("checked") == true)){
+
+    //         }
+    //         if(($('#male').prop("checked") == false) && ($('#female').prop("checked") == false)){
+    //             document.getElementById("CannotMsgGender").innerHTML = "You must choose a gender.";
+    //             $('#CannotMsgGender').addClass('invalid-red')
+    //         }
+
+
+
+    //     });
+    // });
+    function ValidateGender() {
+        if(($('#male').prop("checked") == true) || ($('#female').prop("checked") == true)){
+            document.getElementById("CannotMsgGender").innerHTML = "";
+            $('#CannotMsgGender').removeClass('invalid-red')
+            return (true)
+        }
+        if(($('#male').prop("checked") == false) && ($('#female').prop("checked") == false)){
+            document.getElementById("CannotMsgGender").innerHTML = "You must choose a gender.";
+            $('#CannotMsgGender').addClass('invalid-red')
+            return(false)
+        }
+    }
+
     $('textarea').on("blur", function(e) {
         switch(e.target.id) {
             case 'textarea1':
@@ -192,20 +221,27 @@ $(function() {
             case 'addressline':
                 ValidateStreet();
                 break;
+            case 'male':
+                ValidateGender();
+                break;
+            case 'female':
+                ValidateGender();
+                break;
         }
     });
 
     function ValidateForm()
     {
-        if ((ValidateName() === true) && (ValidateLastName() === true) && (ValidateEmail() === true) && (ValidateCountry() === true) && (ValidatePasswords() === true) && (ValidateStreet() === true) && (ValidateZipCode() === true)) {
-            window.location.href = "http://127.0.0.1:5502/Uppgift%201/Uppgift%201/welcome.html";
+        if ((ValidateName() === true) && (ValidateLastName() === true) && (ValidateEmail() === true) && (ValidateCountry() === true) && (ValidatePasswords() === true) && (ValidateStreet() === true) && (ValidateZipCode() === true) && (ValidateGender() === true)) {
+            window.location.href = "http://127.0.0.1:5503/Uppgift%201/Uppgift%201/welcome.html";
+            // Om inte funkar är det liveservern. Ibland vill den inte hänga med. då får man ändra (550(detta nummer))...
         } 
     }
 
     function ValidateLoginForm()
     {
         if ((ValidateEmail() === true) && ValidateLoginPassword() === true) {
-            window.location.href = "http://127.0.0.1:5502/Uppgift%201/Uppgift%201/welcome.html";
+            window.location.href = "http://127.0.0.1:5503/Uppgift%201/Uppgift%201/welcome.html";
         } 
     }
     
@@ -220,11 +256,3 @@ $(function() {
     })
 
 });
-
-
-
-
-
-
-
-
